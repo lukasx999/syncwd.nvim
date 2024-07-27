@@ -1,3 +1,8 @@
+
+
+if State == true then print("YES!!!") end
+
+
 -- Get parent process id from given pid
 local function ppidof(pid)
     local cmd = string.format("ps -o ppid= -p %s", pid)
