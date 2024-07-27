@@ -1,9 +1,8 @@
+local M = {}
 
-local function hello()
+function M.hello()
     print("hello from my plugin!")
 end
 
 
-return {
-    hello = hello,
-}
+return M
