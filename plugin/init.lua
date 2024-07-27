@@ -1,7 +1,5 @@
 
 
-if State == true then print("YES!!!") end
-
 
 -- Get parent process id from given pid
 local function ppidof(pid)
@@ -17,25 +15,13 @@ end
 
 Enabled = false
 
--- API
-
-local function vimd_enable()
-    Enabled = true
-end
-
-local function vimd_disable()
-    Enabled = false
-end
-
-local function vimd_toggle()
-    Enabled = not Enabled
-end
+local vimd = require("vimsync")
 
 
 vim.api.nvim_create_user_command(
   "VimdEnable",
     function()
-        vimd_enable()
+        vimd.vimd_enable()
     end,
   { bang = false, nargs = "*", complete = "shellcmd" }
 )
@@ -43,7 +29,7 @@ vim.api.nvim_create_user_command(
 vim.api.nvim_create_user_command(
   "VimdDisable",
     function()
-        vimd_disable()
+        vimd.vimd_disable()
     end,
   { bang = false, nargs = "*", complete = "shellcmd" }
 )
@@ -51,7 +37,7 @@ vim.api.nvim_create_user_command(
 vim.api.nvim_create_user_command(
   "VimdToggle",
     function()
-        vimd_toggle()
+        vimd.vimd_toggle()
     end,
   { bang = false, nargs = "*", complete = "shellcmd" }
 )
