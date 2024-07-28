@@ -12,6 +12,7 @@ This plugin is very useful if your goal is to use a file manager such as `oil.nv
 
 
 
+
 ### Install
 
 #### Neovim Plugin (via Lazy.nvim)
