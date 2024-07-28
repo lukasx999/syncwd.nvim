@@ -1,27 +1,27 @@
 
 
-local vimd = require("vimd")
+local syncwd = require("syncwd")
 
 vim.api.nvim_create_user_command(
-    "VimdEnable",
+    "SyncwdEnable",
     function()
-        vimd.enable()
+        syncwd.enable()
     end,
     { bang = false, nargs = "*", complete = "shellcmd" }
 )
 
 vim.api.nvim_create_user_command(
-    "VimdDisable",
+    "SyncwdDisable",
     function()
-        vimd.disable()
+        syncwd.disable()
     end,
     { bang = false, nargs = "*", complete = "shellcmd" }
 )
 
 vim.api.nvim_create_user_command(
-    "VimdToggle",
+    "SyncwdToggle",
     function()
-        vimd.toggle()
+        syncwd.toggle()
     end,
     { bang = false, nargs = "*", complete = "shellcmd" }
 )

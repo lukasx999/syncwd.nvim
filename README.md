@@ -1,5 +1,5 @@
 
-# vimd
+# Syncwd
 
 
 ## Sync Neovims working directory with the one of your shell
@@ -19,14 +19,14 @@ This plugin is very useful if your goal is to use a file manager such as `oil.nv
 
 ```lua
 
-return { "lukasx999/vimd.nvim" }
+return { "lukasx999/syncwd.nvim" }
 
 ```
 
 #### Shell script
 
 
-- Save the `changecwd.sh` script to somewhere on your system (eg: `~/Scripts/vimd/changecwd.sh`)
+- Save the `changecwd.sh` script to somewhere on your system (eg: `~/Scripts/syncwd/changecwd.sh`)
 - Add this line to your shellrc (`~/.bashrc`, `~/.zshrc`)
 
 ```bash
@@ -39,7 +39,7 @@ source path/to/changecwd.sh  # (source is a bashism)
 
 ```
 
-> **NOTE**: if vimd is enabled within Neovim, but you have not configured your shell yet, your shell will exit after quitting vim!
+> **NOTE**: if syncwd is enabled within Neovim, but you have not configured your shell yet, your shell will exit after quitting vim!
 
 
 ### Usage
@@ -57,11 +57,11 @@ source path/to/changecwd.sh  # (source is a bashism)
 ```lua
 
 return {
-    "lukasx999/vimd.nvim",
+    "lukasx999/syncwd.nvim",
     config = function()
 
-        require("vimd").setup({
-            init = true,  -- Should vimd be enabled on startup?
+        require("syncwd").setup({
+            init = true,  -- Should syncing be enabled on startup?
         })
 
     end,
@@ -75,9 +75,9 @@ return {
 
 ### Commands
 
-- `:VimdEnable`
-- `:VimdDisable`
-- `:VimdToggle`
+- `:SyncwdEnable`
+- `:SyncwdDisable`
+- `:SyncwdToggle`
 
 
 
@@ -85,11 +85,11 @@ return {
 
 
 ```lua
-local vimd = require("vimd")
-vimd.state()
-vimd.enable()
-vimd.disable()
-vimd.toggle()
+local syncwd = require("syncwd")
+syncwd.state()
+syncwd.enable()
+syncwd.disable()
+syncwd.toggle()
 ```
 
 
@@ -97,9 +97,9 @@ vimd.toggle()
 ### How does this work???
 
 
-Right before quitting Vim, a autocmd is fired, which will write the current working directory to a temporary file. (`/tmp/vimd_cwd`)<br>
+Right before quitting Vim, a autocmd is fired, which will write the current working directory to a temporary file. (`/tmp/syncwd_cwd`)<br>
 Then it will get the PID of its parent process. (which is the shell that it was started from)<br>
 After that, a signal, `SIGUSR1` (user defined signal) is sent to said pid.<br>
-The shell script, sourced in your `shellrc` then sets up a `trap` for said signal, which will then `pushd` into the cwd from `/tmp/vimd_cwd`.<br>
+The shell script, sourced in your `shellrc` then sets up a `trap` for said signal, which will then `pushd` into the cwd from `/tmp/syncwd_cwd`.<br>
 
 

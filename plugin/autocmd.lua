@@ -15,12 +15,12 @@ end
 
 -- When quitting Vim, write the current CWD to a file and send SIGUSR1 to the parent process (shell that vim was started from)
 
-vim.api.nvim_create_augroup("vimd", { clear = true })
+vim.api.nvim_create_augroup("syncwd", { clear = true })
 vim.api.nvim_create_autocmd(
     "VimLeave",
     {
         pattern = "",
-        group = "vimd",
+        group = "syncwd",
         callback = function()
 
             if Enabled == false then return end
@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd(
             local cwd = vim.fn.getcwd()
 
             -- Write current CWD to file
-            local file = io.open("/tmp/vimd_cwd", "w")
+            local file = io.open("/tmp/syncwd_cwd", "w")
             if file == nil then return end
             file:write(cwd)
             file:close()
