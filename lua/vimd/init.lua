@@ -6,9 +6,9 @@ function M.setup(opts)
     print("hello from my plugin!")
 
     if opts.init == true then
-        Enable = true
+        Enabled = true
     else
-        Enable = false
+        Enabled = false
     end
 
 end
