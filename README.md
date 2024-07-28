@@ -6,14 +6,43 @@
 
 
 
-### Install (via Lazy.nvim)
+### Install
 
+#### Neovim Plugin (via Lazy.nvim)
 
 ```lua
 
 return { "lukasx999/vimd" }
 
 ```
+
+#### Shell script
+
+
+
+- Save the `changecwd.sh` script to somewhere on your system
+- Add this line to your shellrc (`~/.bashrc`, `~/.zshrc`)
+
+```bash
+
+# ~/.bashrc
+
+source path/to/changecwd.sh
+# or: (source is a bashism)
+. path/to/changecwd.sh
+
+```
+
+
+
+### Usage
+
+- Start Vim
+- Exit Vim
+
+
+
+> NOTE: Whenever your cwd gets synced when exiting, you can always use `popd` to go back to the previous directory before the vim session
 
 
 
@@ -65,7 +94,7 @@ vimd.toggle()
 
 
 Right before quitting Vim, a autocmd is fired, which will write the current working directory to a temporary file. (`/tmp/vimd_cwd`)
-Then it will get the PID of its parent process (which is the shell that it was started from)
+Then it will get the PID of its parent process (which is the shell that it was started from).
 After that a signal, `SIGUSR1` (user defined signal) is sent to said pid.
 The shell script, sourced in your `shellrc` then sets up a `trap` for said signal, which will then `pushd` into the cwd from `/tmp/vimd_cwd`.
 
