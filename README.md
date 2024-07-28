@@ -19,19 +19,20 @@ return { "lukasx999/vimd" }
 #### Shell script
 
 
-
-- Save the `changecwd.sh` script to somewhere on your system
+- Save the `changecwd.sh` script to somewhere on your system (eg: `~/Scripts/vimd/changecwd.sh`)
 - Add this line to your shellrc (`~/.bashrc`, `~/.zshrc`)
 
 ```bash
 
 # ~/.bashrc
 
-source path/to/changecwd.sh
-# or: (source is a bashism)
+source path/to/changecwd.sh  # (source is a bashism)
+# or:
 . path/to/changecwd.sh
 
 ```
+
+> **NOTE**: if vimd is enabled within Neovim, but you have not configured your shell yet, your shell will exit after quitting vim!
 
 
 
@@ -42,7 +43,7 @@ source path/to/changecwd.sh
 
 
 
-> NOTE: Whenever your cwd gets synced when exiting, you can always use `popd` to go back to the previous directory before the vim session
+> Whenever your cwd gets synced when exiting, you can always use `popd` to go back to the previous directory before the vim session
 
 
 
@@ -65,15 +66,14 @@ return {
 ```
 
 
-> **NOTE**: if vimd is enabled within Neovim, but you have not configured your shell yet, your shell will crash!
 
 
 
 ### Commands
 
-- :VimdEnable
-- :VimdDisable
-- :VimdToggle
+- `:VimdEnable`
+- `:VimdDisable`
+- `:VimdToggle`
 
 
 
@@ -93,9 +93,9 @@ vimd.toggle()
 ### How does this work???
 
 
-Right before quitting Vim, a autocmd is fired, which will write the current working directory to a temporary file. (`/tmp/vimd_cwd`)
-Then it will get the PID of its parent process (which is the shell that it was started from).
-After that a signal, `SIGUSR1` (user defined signal) is sent to said pid.
-The shell script, sourced in your `shellrc` then sets up a `trap` for said signal, which will then `pushd` into the cwd from `/tmp/vimd_cwd`.
+Right before quitting Vim, a autocmd is fired, which will write the current working directory to a temporary file. (`/tmp/vimd_cwd`)<br>
+Then it will get the PID of its parent process. (which is the shell that it was started from)<br>
+After that a signal, `SIGUSR1` (user defined signal) is sent to said pid.<br>
+The shell script, sourced in your `shellrc` then sets up a `trap` for said signal, which will then `pushd` into the cwd from `/tmp/vimd_cwd`.<br>
 
 
