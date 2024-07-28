@@ -2,6 +2,7 @@ local M = {}
 
 
 function M.setup(opts)
+
     opts = opts or {}
 
     if opts.init == true then
@@ -14,11 +15,22 @@ end
 
 
 
-local api = require("api.lua")
-M.vimd_state = api.vimd_state
-M.vimd_enable = api.vimd_enable
-M.vimd_disable = api.vimd_disable
-M.vimd_toggle = api.vimd_toggle
+function M.vimd_state()
+    return Enabled
+end
+
+function M.vimd_enable()
+    Enabled = true
+end
+
+function M.vimd_disable()
+    Enabled = false
+end
+
+function M.vimd_toggle()
+    Enabled = not Enabled
+end
+
 
 
 return M
