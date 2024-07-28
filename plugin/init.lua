@@ -15,7 +15,7 @@ end
 
 Enabled = false
 
-local vimd = require("vimsync")
+local vimd = require("vimd")
 
 
 vim.api.nvim_create_user_command(
