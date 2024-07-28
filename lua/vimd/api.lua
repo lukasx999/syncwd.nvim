@@ -1,16 +1,20 @@
 
-local function vimd_state()
+local Api = {}
+
+function Api.vimd_state()
     return Enabled
 end
 
-local function vimd_enable()
+function Api.vimd_enable()
     Enabled = true
 end
 
-local function vimd_disable()
+function Api.vimd_disable()
     Enabled = false
 end
 
-local function vimd_toggle()
+function Api.vimd_toggle()
     Enabled = not Enabled
 end
+
+return Api
