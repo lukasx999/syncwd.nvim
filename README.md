@@ -8,7 +8,7 @@
 Normally when you start a Neovim instance and navigate to another directory through eg: `oil / neotree / :cd`,
 and you exit Vim, you return to your shells CWD.<br>
 
-If you'd like for your shells working directory to be synced to Neovims working directory, then this plugin does just that.<br>
+If you'd like your shells working directory to be directly synced to Neovims working directory, then this plugin does just that.<br>
 This plugin is very useful if your goal is to use a file manager such as `oil.nvim` as your primary file manager.<br>
 
 
