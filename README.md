@@ -2,7 +2,7 @@
 # vimd
 
 
-## Sync your shells working directory with the one from Neovim
+## Sync Neovims working directory with the one of your shell
 
 
 
@@ -43,7 +43,7 @@ source path/to/changecwd.sh  # (source is a bashism)
 
 
 
-> Whenever your cwd gets synced when exiting, you can always use `popd` to go back to the previous directory before the vim session
+> **NOTE**: Whenever your cwd gets synced when exiting, you can always use `popd` to go back to the previous directory before the vim session
 
 
 
@@ -95,7 +95,7 @@ vimd.toggle()
 
 Right before quitting Vim, a autocmd is fired, which will write the current working directory to a temporary file. (`/tmp/vimd_cwd`)<br>
 Then it will get the PID of its parent process. (which is the shell that it was started from)<br>
-After that a signal, `SIGUSR1` (user defined signal) is sent to said pid.<br>
+After that, a signal, `SIGUSR1` (user defined signal) is sent to said pid.<br>
 The shell script, sourced in your `shellrc` then sets up a `trap` for said signal, which will then `pushd` into the cwd from `/tmp/vimd_cwd`.<br>
 
 
