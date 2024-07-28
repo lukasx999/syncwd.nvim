@@ -35,16 +35,13 @@ source path/to/changecwd.sh  # (source is a bashism)
 > **NOTE**: if vimd is enabled within Neovim, but you have not configured your shell yet, your shell will exit after quitting vim!
 
 
-
 ### Usage
 
 - Start Vim
 - Exit Vim
 
 
-
 > **NOTE**: Whenever your cwd gets synced when exiting, you can always use `popd` to go back to the previous directory before the vim session
-
 
 
 ### Configuration
