@@ -3,7 +3,6 @@ local M = {}
 
 function M.setup(opts)
     opts = opts or {}
-    print("hello from my plugin!")
 
     if opts.init == true then
         Enabled = true
@@ -14,23 +13,12 @@ function M.setup(opts)
 end
 
 
--- API
 
-function M.vimd_state()
-    return Enabled
-end
-
-function M.vimd_enable()
-    Enabled = true
-end
-
-function M.vimd_disable()
-    Enabled = false
-end
-
-function M.vimd_toggle()
-    Enabled = not Enabled
-end
+local api = require("api")
+M.vimd_state = api.vimd_state
+M.vimd_enable = api.vimd_enable
+M.vimd_disable = api.vimd_disable
+M.vimd_toggle = api.vimd_toggle
 
 
 return M
