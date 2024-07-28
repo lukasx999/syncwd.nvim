@@ -15,19 +15,19 @@ end
 
 
 
-function M.vimd_state()
+function M.state()
     return Enabled
 end
 
-function M.vimd_enable()
+function M.enable()
     Enabled = true
 end
 
-function M.vimd_disable()
+function M.disable()
     Enabled = false
 end
 
-function M.vimd_toggle()
+function M.toggle()
     Enabled = not Enabled
 end
 

@@ -13,9 +13,7 @@ local function ppidof(pid)
 end
 
 
-
-
-
+-- When quitting Vim, write the current CWD to a file and send SIGUSR1 to the parent process (shell that vim was started from)
 
 vim.api.nvim_create_augroup("vimd", { clear = true })
 vim.api.nvim_create_autocmd(
@@ -42,6 +40,7 @@ vim.api.nvim_create_autocmd(
             -- Get PID of parent shell process
             local parent_pid = ppidof(pid_vim)
 
+            -- Send signal
             local cmd = string.format("kill -USR1 %s", parent_pid)
             os.execute(cmd)
 
