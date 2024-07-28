@@ -19,7 +19,7 @@ This plugin is very useful if your goal is to use a file manager such as `oil.nv
 
 ```lua
 
-return { "lukasx999/vimd" }
+return { "lukasx999/vimd.nvim" }
 
 ```
 
@@ -57,7 +57,7 @@ source path/to/changecwd.sh  # (source is a bashism)
 ```lua
 
 return {
-    "lukasx999/vimd",
+    "lukasx999/vimd.nvim",
     config = function()
 
         require("vimd").setup({
