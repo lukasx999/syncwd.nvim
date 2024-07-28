@@ -1,12 +1,24 @@
 local M = {}
 
 
-function M.setup()
+function M.setup(opts)
+    opts = opts or {}
     print("hello from my plugin!")
+
+    if opts.init == true then
+        Enable = true
+    else
+        Enable = false
+    end
+
 end
 
 
 -- API
+
+function M.vimd_state()
+    return Enabled
+end
 
 function M.vimd_enable()
     Enabled = true
