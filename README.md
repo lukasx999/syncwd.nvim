@@ -11,6 +11,8 @@ If you'd like your shells working directory to be directly synced to Neovims wor
 This plugin is very useful if your goal is to use a file manager such as `oil.nvim` as your primary file manager.<br>
 
 
+<br>
+<br>
 
 
 ### Install
@@ -54,6 +56,10 @@ source path/to/changecwd.sh  # (source is a bashism)
 > **NOTE**: Whenever your cwd gets synced when exiting, you can always use `popd` to go back to the previous directory before the vim session
 
 
+<br>
+<br>
+
+
 ### Configuration
 
 
@@ -74,6 +80,9 @@ return {
 
 
 
+<br>
+<br>
+
 
 
 ### Commands
@@ -82,6 +91,9 @@ return {
 - `:SyncwdDisable`
 - `:SyncwdToggle`
 
+
+<br>
+<br>
 
 
 ### API
@@ -95,6 +107,9 @@ syncwd.disable()
 syncwd.toggle()
 ```
 
+
+<br>
+<br>
 
 
 ### How does this work???
