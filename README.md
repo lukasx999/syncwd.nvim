@@ -53,7 +53,7 @@ source path/to/changecwd.sh  # (source is a bashism)
 - Exit Vim
 
 
-> **NOTE**: Whenever your cwd gets synced when exiting, you can always use `popd` to go back to the previous directory before the vim session
+> **NOTE**: Whenever your cwd gets synced when exiting, you can always use `popd` or `cd -` to go back to the previous directory before the vim session
 
 
 <br>
