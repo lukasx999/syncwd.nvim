@@ -41,6 +41,9 @@ source path/to/changecwd.sh  # (source is a bashism)
 
 > **NOTE**: if syncwd is enabled within Neovim, but you have not configured your shell yet, your shell will exit after quitting vim!
 
+<br>
+<br>
+
 
 ### Usage
 
