@@ -1,5 +1,5 @@
 
-# Syncwd
+# syncwd.nvim
 
 
 ## Sync Neovims working directory with the one of your shell
