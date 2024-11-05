@@ -2,7 +2,7 @@
 
 function handler {
 
-    cwd=$(cat /tmp/vimd_cwd)
+    cwd=$(cat /tmp/syncwd_cwd)
     pushd $cwd > /dev/null
 
 }
